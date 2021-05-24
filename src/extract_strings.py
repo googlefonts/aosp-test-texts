@@ -12,10 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import itertools
 import json
 import re
 import subprocess
-import itertools
 import xml.etree.ElementTree as ET
 from collections import defaultdict
 from dataclasses import dataclass, field
