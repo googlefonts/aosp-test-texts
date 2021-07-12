@@ -528,6 +528,9 @@ def glob_read_strings_files():
             lang = "en"
             if match := re.match(r".*values-([^/\\]*)", str(path)):
                 lang = match.group(1)
+            # Some locales contain garbage data.
+            if "en-rXC" in lang:
+                continue
             sentences = []
             tree = ET.parse(path)
             root = tree.getroot()
