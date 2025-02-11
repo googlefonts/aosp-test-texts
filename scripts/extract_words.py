@@ -15,6 +15,7 @@
 import json
 from collections import defaultdict
 from pathlib import Path
+from typing import cast
 
 CORPUS = Path(__file__).parent.parent / "corpus" / "aosp.json"
 
@@ -26,11 +27,23 @@ def main() -> None:
     lang_words: dict[str, set[str]] = defaultdict(set)
 
     for sentence, info in data.items():
-        words = [word.strip() for word in sentence.split() if word.strip() != ""]
-        languages = set(lang.split("-")[0] for lang in info["langs"])
+        sentence = cast(str, sentence)
+
+        words = set()
+        for word in sentence.split():
+            word = word.strip()
+            if word != "":
+                words.add(word)
+
+        languages = set()
+        for language_string in info["langs"]:
+            language = language_string.split("-")[0]
+            if len(language) == 2:
+                languages.add(language)
+
         for language in languages:
             lang_words[language].update(words)
-    
+
     out_dir = Path("output")
     out_dir.mkdir(exist_ok=True)
     for language, words in lang_words.items():
