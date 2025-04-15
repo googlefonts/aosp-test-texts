@@ -37,11 +37,15 @@ DOWNLOADS = Path(__file__).parent / "../repos"
 APP_GIT_REPOS = [
     (
         "AccountsAndSyncSettings",
-        "https://android.googlesource.com/platform/packages/apps/AccountsAndSyncSettings/",  # noqa: E501
+        "https://android.googlesource.com/platform/packages/apps/AccountsAndSyncSettings/",
     ),
     (
         "AlarmClock",
         "https://android.googlesource.com/platform/packages/apps/AlarmClock/",
+    ),
+    (
+        "AvatarPicker",
+        "https://android.googlesource.com/platform/packages/apps/AvatarPicker/",
     ),
     (
         "BasicSmsReceiver",
@@ -80,8 +84,20 @@ APP_GIT_REPOS = [
         "https://android.googlesource.com/platform/packages/apps/Camera2/",
     ),
     (
+        "BugReport",
+        "https://android.googlesource.com/platform/packages/apps/Car/BugReport/",
+    ),
+    (
+        "BugReportPrebuilt",
+        "https://android.googlesource.com/platform/packages/apps/Car/BugReportPrebuilt/",
+    ),
+    (
         "Calendar",
         "https://android.googlesource.com/platform/packages/apps/Car/Calendar/",
+    ),
+    (
+        "CalendarPrebuilt",
+        "https://android.googlesource.com/platform/packages/apps/Car/CalendarPrebuilt/",
     ),
     (
         "Cluster",
@@ -89,11 +105,35 @@ APP_GIT_REPOS = [
     ),
     (
         "CompanionDeviceSupport",
-        "https://android.googlesource.com/platform/packages/apps/Car/CompanionDeviceSupport/",  # noqa: E501
+        "https://android.googlesource.com/platform/packages/apps/Car/CompanionDeviceSupport/",
+    ),
+    (
+        "Dashcam",
+        "https://android.googlesource.com/platform/packages/apps/Car/Dashcam/",
+    ),
+    (
+        "DataSubscriptionReference",
+        "https://android.googlesource.com/platform/packages/apps/Car/DataSubscriptionReference/",
+    ),
+    (
+        "DebuggingRestrictionController",
+        "https://android.googlesource.com/platform/packages/apps/Car/DebuggingRestrictionController/",
     ),
     (
         "Dialer",
         "https://android.googlesource.com/platform/packages/apps/Car/Dialer/",
+    ),
+    (
+        "DialerPrebuilt",
+        "https://android.googlesource.com/platform/packages/apps/Car/DialerPrebuilt/",
+    ),
+    (
+        "DriverUI",
+        "https://android.googlesource.com/platform/packages/apps/Car/DriverUI/",
+    ),
+    (
+        "DriverUIPrebuilt",
+        "https://android.googlesource.com/platform/packages/apps/Car/DriverUIPrebuilt/",
     ),
     (
         "externallibs",
@@ -132,8 +172,20 @@ APP_GIT_REPOS = [
         "https://android.googlesource.com/platform/packages/apps/Car/Media/",
     ),
     (
+        "MediaPrebuilt",
+        "https://android.googlesource.com/platform/packages/apps/Car/MediaPrebuilt/",
+    ),
+    (
         "Messenger",
         "https://android.googlesource.com/platform/packages/apps/Car/Messenger/",
+    ),
+    (
+        "MessengerPrebuilt",
+        "https://android.googlesource.com/platform/packages/apps/Car/MessengerPrebuilt/",
+    ),
+    (
+        "MultiDisplay",
+        "https://android.googlesource.com/platform/packages/apps/Car/MultiDisplay/",
     ),
     (
         "Notification",
@@ -152,16 +204,40 @@ APP_GIT_REPOS = [
         "https://android.googlesource.com/platform/packages/apps/Car/Radio/",
     ),
     (
+        "RadioPrebuilt",
+        "https://android.googlesource.com/platform/packages/apps/Car/RadioPrebuilt/",
+    ),
+    (
+        "References",
+        "https://android.googlesource.com/platform/packages/apps/Car/References/",
+    ),
+    (
         "RotaryController",
         "https://android.googlesource.com/platform/packages/apps/Car/RotaryController/",
+    ),
+    (
+        "RotaryImePrebuilt",
+        "https://android.googlesource.com/platform/packages/apps/Car/RotaryImePrebuilt/",
     ),
     (
         "Settings",
         "https://android.googlesource.com/platform/packages/apps/Car/Settings/",
     ),
     (
+        "SettingsIntelligence",
+        "https://android.googlesource.com/platform/packages/apps/Car/SettingsIntelligence/",
+    ),
+    (
         "Stream",
         "https://android.googlesource.com/platform/packages/apps/Car/Stream/",
+    ),
+    (
+        "systemlibs",
+        "https://android.googlesource.com/platform/packages/apps/Car/systemlibs/",
+    ),
+    (
+        "SystemUI",
+        "https://android.googlesource.com/platform/packages/apps/Car/SystemUI/",
     ),
     (
         "SystemUpdater",
@@ -178,6 +254,10 @@ APP_GIT_REPOS = [
     (
         "UserManagement",
         "https://android.googlesource.com/platform/packages/apps/Car/UserManagement/",
+    ),
+    (
+        "VoiceControl",
+        "https://android.googlesource.com/platform/packages/apps/Car/VoiceControl/",
     ),
     (
         "CarrierConfig",
@@ -206,6 +286,10 @@ APP_GIT_REPOS = [
     (
         "DevCamera",
         "https://android.googlesource.com/platform/packages/apps/DevCamera/",
+    ),
+    (
+        "DeviceDiagnostics",
+        "https://android.googlesource.com/platform/packages/apps/DeviceDiagnostics/",
     ),
     (
         "Dialer",
@@ -261,7 +345,7 @@ APP_GIT_REPOS = [
     ),
     (
         "IdentityCredentialSupport",
-        "https://android.googlesource.com/platform/packages/apps/IdentityCredentialSupport/",  # noqa: E501
+        "https://android.googlesource.com/platform/packages/apps/IdentityCredentialSupport/",
     ),
     (
         "IM",
@@ -312,6 +396,10 @@ APP_GIT_REPOS = [
         "https://android.googlesource.com/platform/packages/apps/Mms/",
     ),
     (
+        "Multiuser",
+        "https://android.googlesource.com/platform/packages/apps/Multiuser/",
+    ),
+    (
         "Music",
         "https://android.googlesource.com/platform/packages/apps/Music/",
     ),
@@ -344,6 +432,10 @@ APP_GIT_REPOS = [
         "https://android.googlesource.com/platform/packages/apps/PhoneCommon/",
     ),
     (
+        "PrivateSpace",
+        "https://android.googlesource.com/platform/packages/apps/PrivateSpace/",
+    ),
+    (
         "Protips",
         "https://android.googlesource.com/platform/packages/apps/Protips/",
     ),
@@ -373,7 +465,7 @@ APP_GIT_REPOS = [
     ),
     (
         "SampleLocationAttribution",
-        "https://android.googlesource.com/platform/packages/apps/SampleLocationAttribution/",  # noqa: E501
+        "https://android.googlesource.com/platform/packages/apps/SampleLocationAttribution/",
     ),
     (
         "SecureElement",
@@ -416,6 +508,10 @@ APP_GIT_REPOS = [
         "https://android.googlesource.com/platform/packages/apps/Sync/",
     ),
     (
+        "SystemUIGo",
+        "https://android.googlesource.com/platform/packages/apps/SystemUIGo/",
+    ),
+    (
         "Tag",
         "https://android.googlesource.com/platform/packages/apps/Tag/",
     ),
@@ -448,8 +544,16 @@ APP_GIT_REPOS = [
         "https://android.googlesource.com/platform/packages/apps/TV/",
     ),
     (
+        "TvFeedbackConsent",
+        "https://android.googlesource.com/platform/packages/apps/TvFeedbackConsent/",
+    ),
+    (
         "TvSettings",
         "https://android.googlesource.com/platform/packages/apps/TvSettings/",
+    ),
+    (
+        "TvSystemUI",
+        "https://android.googlesource.com/platform/packages/apps/TvSystemUI/",
     ),
     (
         "UnifiedEmail",
