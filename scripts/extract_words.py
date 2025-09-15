@@ -16,8 +16,57 @@ import json
 from collections import defaultdict
 from pathlib import Path
 from typing import cast
+from gflanguages import LoadLanguages, LoadScripts
+import youseedee
+
+
+CLDR_SCRIPT_TO_UCD_SCRIPT = {
+    "Bangla": "Bengali",
+    "Traditional Han": "Han",
+    "Simplified Han": "Han",
+    "Korean": "Hangul",
+    "Odia": "Oriya",
+    "Makasar": "Buginese",
+    "Lanna": "Tai Tham",
+    "Unified Canadian Aboriginal Syllabics": "Canadian Aboriginal",
+    "S-A Cuneiform": "Cuneiform",
+    "Pollard Phonetic": "Miao",
+    "Egyptian hieroglyphs": "Egyptian Hieroglyphs",
+    "Zanabazar": "Zanabazar Square",
+    "Nüshu": "Nushu",
+    "Mandaean": "Mandaic",
+    "N’Ko": "Nko",
+    "Varang Kshiti": "Warang Citi",
+    "Mende": "Mende Kikakui",
+    "Phags-pa": "Phags Pa",
+    "Fraser": "Lisu",
+    "Georgian Khutsuri": "Georgian",
+    "Orkhon": "Old Turkic",
+}
 
 CORPUS = Path(__file__).parent.parent / "corpus" / "aosp.json"
+LANGUAGES = LoadLanguages().values()
+SCRIPTS = LoadScripts()
+
+scripts_per_lang: dict[str, set[str]] = defaultdict(set)
+
+for lang in LANGUAGES:
+    script_name = SCRIPTS[lang.script].name
+    script_name = CLDR_SCRIPT_TO_UCD_SCRIPT.get(script_name, script_name)
+    scripts_per_lang[lang.language].add(script_name)
+
+
+def filter_script(text, scripts):
+    filtered = ""
+    for char in text:
+        char_script = youseedee.ucd_data(ord(char)).get("Script")
+        if char_script == "Common" or char_script == "Inherited" or not char_script:
+            continue
+        char_script = char_script.replace("_", " ")
+        if char_script not in scripts:
+            continue
+        filtered += char
+    return filtered
 
 
 def main() -> None:
@@ -42,6 +91,11 @@ def main() -> None:
                 languages.add(language)
 
         for language in languages:
+            if language in scripts_per_lang:
+                # Filter words by script
+                words = {
+                    filter_script(word, scripts_per_lang[language]) for word in words
+                }
             lang_words[language].update(words)
 
     out_dir = Path("output")
